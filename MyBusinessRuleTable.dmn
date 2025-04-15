@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01i4t8e" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="8336389" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="business-rules-0puf71s" name="Business Rules">
+    <decisionTable id="DecisionTable_0w286z5">
+      <input id="Input_1" label="amount">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>inputAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="My Decision" name="myDecision" typeRef="string" />
+      <rule id="DecisionRule_1i9gjgn">
+        <inputEntry id="UnaryTests_0n42wxt">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xbar3q">
+          <text>"low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1st2jm8">
+        <inputEntry id="UnaryTests_1148879">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dabyut">
+          <text>"default"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="business-rules-0puf71s">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

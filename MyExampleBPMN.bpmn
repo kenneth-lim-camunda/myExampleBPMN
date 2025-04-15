@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="8d36a4d" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="8336389" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
   <bpmn:process id="Process_MyExampleBPMN" name="MyExampleBPMN" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_1nm4gty</bpmn:outgoing>
@@ -25,7 +25,7 @@
       <bpmn:outgoing>Flow_0es540n</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0ls545w" name="yes" sourceRef="Gateway_10ua3nr" targetRef="Activity_0z2c5lj">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=true</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=businessRuleResult="default"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="Event_0zs0nxw">
       <bpmn:incoming>Flow_0es540n</bpmn:incoming>
@@ -36,17 +36,20 @@
       <bpmn:outgoing>Flow_1pq2pri</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1ieayj7" name="no" sourceRef="Gateway_10ua3nr" targetRef="Activity_1388mi8">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=false</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=businessRuleResult="low"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="Event_03f72j5">
       <bpmn:incoming>Flow_1pq2pri</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1pq2pri" sourceRef="Activity_1388mi8" targetRef="Event_03f72j5" />
-    <bpmn:task id="Activity_1gtdm5e" name="Do Something Else">
+    <bpmn:sequenceFlow id="Flow_16sbu6s" sourceRef="Activity_1gtdm5e" targetRef="Gateway_10ua3nr" />
+    <bpmn:businessRuleTask id="Activity_1gtdm5e" name="Business Rules">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="business-rules-0puf71s" resultVariable="businessRuleResult" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1lalhpw</bpmn:incoming>
       <bpmn:outgoing>Flow_16sbu6s</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_16sbu6s" sourceRef="Activity_1gtdm5e" targetRef="Gateway_10ua3nr" />
+    </bpmn:businessRuleTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_MyExampleBPMN">
@@ -81,9 +84,8 @@
       <bpmndi:BPMNShape id="Event_03f72j5_di" bpmnElement="Event_03f72j5">
         <dc:Bounds x="1012" y="212" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1gtdm5e_di" bpmnElement="Activity_1gtdm5e">
+      <bpmndi:BPMNShape id="Activity_14az67g_di" bpmnElement="Activity_1gtdm5e">
         <dc:Bounds x="560" y="78" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1nm4gty_di" bpmnElement="Flow_1nm4gty">
         <di:waypoint x="186" y="118" />
