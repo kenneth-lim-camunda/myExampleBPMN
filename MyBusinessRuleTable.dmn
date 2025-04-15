@@ -16,6 +16,22 @@
           <text>"low"</text>
         </outputEntry>
       </rule>
+      <rule id="DecisionRule_0hrod9c">
+        <inputEntry id="UnaryTests_0e5xa05">
+          <text>&lt;5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1foreny">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15pykhe">
+        <inputEntry id="UnaryTests_0krnwvh">
+          <text>&gt;10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03o39rx">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
       <rule id="DecisionRule_1st2jm8">
         <inputEntry id="UnaryTests_1148879">
           <text></text>
