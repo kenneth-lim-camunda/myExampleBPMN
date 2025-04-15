@@ -18,7 +18,7 @@
       </rule>
       <rule id="DecisionRule_0hrod9c">
         <inputEntry id="UnaryTests_0e5xa05">
-          <text>&lt;5000</text>
+          <text>[1000..10000]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1foreny">
           <text>"medium"</text>
