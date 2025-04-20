@@ -8,3 +8,4 @@ Keep it up to date with relevant details, instructions, and notes as needed.
 1.8 test webhook and email notification
 1.9 test webhook payload form
 1.10 test new webhook
+1.12 remove a task
